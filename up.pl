@@ -4,9 +4,15 @@
     
     Commandline, Windows Only
 
-=head2 Usage 
+=head2 Synopsis
 
     Usage 
+
+        .\up.pl ACTION DATA
+
+        or 
+
+        perl .\up.pl ACTION DATA
 
 =head3 Add a record 
     
@@ -22,31 +28,81 @@
 
 =cut
 
+=head2 Perl Strictures
+=cut
+
 use strict;
 use warnings;
 
-use 5.14.0;
+=head2 Perl 
+    Enable/Disable Minimum Version
+    default: 5.10.0
+=cut
+
+use 5.10.0;
+
+=head3 Setup
+
+    https://github.com/bislink/PCAccessFree
+
+=cut
+
+=head3 Download 
+
+=head4 Strawberry Perl
+
+    https://strawberryperl.com/download/5.32.1.1/strawberry-perl-5.32.1.1-64bit.msi
+
+=cut
+
+
+
+=head2 User Changable Variables 
+
+    Set/change Path to Powershell executable
+
+=cut
 
 my $POWERSHELL = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe";
+
+
+=head2 Do not change anything beyond this point
+    unless you know what you are doing
+=cut
 
 my $USERNAME = `$POWERSHELL \$Env:UserName`;
     chomp $USERNAME;
 
 print qq{Hello $USERNAME\n};
 
+=head2 File up.up
+    File wherein all user/pass data is stored.
+    Default
+        C:/Users/USERNAME/up.up
+=cut
+
 my $up_file = "C:/Users/$USERNAME/up.up";
+
+=head2 First Arugment
+=cut
 
 my $ACTION = $ARGV[0] || '';
     chomp $ACTION;
 
+=head2 Second Argument
+=cut
+
 my $TERM = $ARGV[1] || '';
     chomp $TERM;
+
+=head2 Date
+=cut
 
 my $DATE = `$POWERSHELL Get-Date -Format "yyyy-MM-dd-dddd-HH-mm-K"`;
     chomp $DATE;
 
 
-=head2 Action and Result 
+=head2 Actions and Result 
 
 =cut
 
