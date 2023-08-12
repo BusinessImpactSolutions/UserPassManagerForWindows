@@ -2,7 +2,7 @@
 
 =head1 Add/Search a User/Pass/Data entry/row
     
-    Windows Only
+    Commandline, Windows Only
 
 =head2 Usage 
 
@@ -27,15 +27,20 @@ use warnings;
 
 use 5.14.0;
 
-my $up_file = "C:/Users/sumu/up.up";
+my $POWERSHELL = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe";
+
+my $USERNAME = `$POWERSHELL \$Env:UserName`;
+    chomp $USERNAME;
+
+print qq{Hello $USERNAME\n};
+
+my $up_file = "C:/Users/$USERNAME/up.up";
 
 my $ACTION = $ARGV[0] || '';
     chomp $ACTION;
 
 my $TERM = $ARGV[1] || '';
     chomp $TERM;
-
-my $POWERSHELL = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe";
 
 my $DATE = `$POWERSHELL Get-Date -Format "yyyy-MM-dd-dddd-HH-mm-K"`;
     chomp $DATE;
@@ -63,6 +68,7 @@ if ($ACTION ne '') {
     # no params 
     print &usage();
 }
+
 
 =head2 Results
 
@@ -145,7 +151,7 @@ sub usage {
 
 
 =head2 Show Total 
-    
+
 =cut
 
 sub total {
