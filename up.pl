@@ -1,5 +1,27 @@
 #!perl
 
+=head1 Add/Search a User/Pass/Data entry/row
+    
+    Windows Only
+
+=head2 Usage 
+
+    Usage 
+
+=head3 Add a record 
+    
+    \up.pl a "username|password|more|content"
+
+=head3 Search a record 
+    
+    \up.pl s SEARCHTERM
+
+=head3 Show Total Records 
+
+    \up.pl t
+
+=cut
+
 use strict;
 use warnings;
 
@@ -18,7 +40,10 @@ my $POWERSHELL = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe";
 my $DATE = `$POWERSHELL Get-Date -Format "yyyy-MM-dd-dddd-HH-mm-K"`;
     chomp $DATE;
 
-#print "Action:$ARGV[0] Term:$ARGV[1]\n";
+
+=head2 Action and Result 
+
+=cut
 
 if ($ACTION ne '') {
     # search/results 
@@ -119,7 +144,8 @@ sub usage {
 }
 
 
-=head2 Total 
+=head2 Show Total 
+    
 =cut
 
 sub total {
