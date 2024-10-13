@@ -126,7 +126,9 @@ if ($ACTION ne '') {
 }
 
 
-=head2 Results
+=head2 Result
+
+    Subroutine Result
 
 =cut
 
@@ -137,29 +139,49 @@ sub result {
         @_,
     );
     #
+    chomp $in{term};
+    #
+    my @matches; 
+    #
+    my $out;
+    #
+    my $error;
+    #
     if ( -f "$up_file" and $in{term} ne '') {
     #
     if ( open( my $file, "<", "$up_file") ) {
         
         while ( my $line = <$file> ) {
             if ( $line =~ /$in{term}/i ) {
-                return qq{\t$. $line};
+                #return qq{\t$. $line};
+                #$line =~ s!\|!\t!g;
+                push(@matches, qq{\t$. \t$line});
             } else {
-                return "No Match";
+                $error = qq{No Match for $in{term} };
             }
         }
         #
         close $file; 
 
         } else {
-            return "Unable to open file #41";
+            $error = qq{Unable to open file #41};
         }
         #
     
     } else {
-        return "Open: Not OK or no arguments provided #45";
+        $error = qq{Open: Not OK or no arguments provided #45};
+    }
+    #
+    for (@matches) {
+        $out .= qq{$_};
     }
     # 
+    if ($error ne '' and $error !~ /^No Match for $in{term}/ ) {
+        
+        $out .= qq{$error\n};
+    }
+    #final output 
+    return $out;
 
 }
 # end result 
