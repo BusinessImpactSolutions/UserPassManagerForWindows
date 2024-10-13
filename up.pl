@@ -221,10 +221,13 @@ sub add {
 # end add 
 
 =head2 Usage 
+
+    $0 s/a/t SearchTerm
+
 =cut
 
 sub usage {
-    return "USAGE\n\t$0 ACTION TERM\n";
+    return "USAGE\n\t$0 s/a/t SEARCHTERM\n";
 }
 
 
