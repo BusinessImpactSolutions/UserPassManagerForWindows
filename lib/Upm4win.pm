@@ -1,4 +1,4 @@
-package UserPassManagerForWindows;
+package Upm4win;
 
 # ABSTRACT: User Pass Manager For Windows
 
