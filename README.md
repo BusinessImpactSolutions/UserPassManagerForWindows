@@ -1,18 +1,57 @@
 # User Pass Manager on Commandline for Windows
 
+Before you do anything, please create a file called `up.up` in your home directory on Windows, 
+
+    C:/Users/USER/up.up
+
+making sure the file extension stays/remains as '.up'; Not '.txt' if you use a utility like notepad.
+
+
+## Installation
+
+Our recommended method to install this software on Windows operating systems is to use 
+
+    git clone 
+
+
+### Using git clone 
+
+This is the recommended method of installation
+
+    cd C:\Users\USER\u;
+
+    git clone https://github.com/BusinessImpactSolutions/UserPassManagerForWindows.git
+
+
+### Using cpanm
+
+Not recommended
+
+    PS C:\Users\USER\> cpanm Upm4win
+
+
 ## Usage
 
-cd c:\Users\USER\u\up
+Usage 
 
-### Search 
+First, change directory to: 
 
-.\up.pl s root
+    cd C:\Users\USER\u\UserPassManagerForWindows
 
-### Add
+where all the necessary files reside
 
-.\up.pl a 'user|pass|any|other|details'
+
+### Search for an item
+
+perl .\lib\Upm4win\up.pl s anything
+
+
+### Add an item 
+
+    perl .\lib\Upm4win\up.pl a 'user|pass|any|other|details'
+
 
 ### Get total records in FDB
 
-.\up.pl t
+    perl .\lib\Upm4win\up.pl t
 
