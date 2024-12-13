@@ -1,10 +1,22 @@
-# User Pass Manager on Commandline for Windows
+# User/Pass Manager For Windows
 
-Before you do anything, please create a file called `up.up` in your home directory on Windows, 
+This is a Commandlike utility
 
-    C:/Users/USER/up.up
+    Runs on Powershell Commandline
 
-making sure the file extension stays/remains as '.up'; Not '.txt' if you use a utility like notepad.
+Before you do anything, please create a file called `up.up` in your home directory on Windows.
+
+Using PowerShell:
+
+    New-Item -Path "C:/Users/USER/up.up" -ItemType File
+
+Using Notepad:
+
+Making sure the file extension stays/remains as `.up`; Not `.txt` if you use a file utility like notepad.
+
+See screenshot
+
+    public/how-to-create-file-with-custom-extension-using-notepad_2024-12-13-113356.png
 
 
 ## Installation
@@ -43,12 +55,12 @@ where all the necessary files reside
 
 ### Search for an item
 
-perl .\lib\Upm4win\up.pl s anything
+    perl .\lib\Upm4win\up.pl s anything
 
 
 ### Add an item 
 
-    perl .\lib\Upm4win\up.pl a 'user|pass|any|other|details'
+    perl .\lib\Upm4win\up.pl a `user|pass|any|other|details`
 
 
 ### Get total records in FDB
